@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class NIOClientTest {
     public static void main(String[] args) throws IOException {
@@ -13,14 +14,9 @@ public class NIOClientTest {
         String s = "hello world";
         out.write(s.getBytes());
         out.close();
-        byte[] buff = new byte[1024];
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        Scanner scanner = new Scanner(in);
+        while (scanner.hasNextLine()) {
+            System.out.println(scanner.nextLine());
         }
-        in.read(buff);
-        System.out.println(new String(buff).trim());
-
     }
 }

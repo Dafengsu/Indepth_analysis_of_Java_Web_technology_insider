@@ -22,6 +22,7 @@ public class HexFilter extends DumpFilter{
     protected void fill() throws IOException {
         buf = new int[ratio];
         int datum = in.read();
+        numRead++;
         if (datum == -1) {
             throw new EOFException();
         }

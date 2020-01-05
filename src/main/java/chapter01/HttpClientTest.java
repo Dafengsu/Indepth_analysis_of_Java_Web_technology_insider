@@ -24,6 +24,7 @@ public class HttpClientTest {
         test04();
     }
 
+
     private static void test01() throws Exception {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet("http://www.baidu.com");

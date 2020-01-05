@@ -47,8 +47,8 @@ public class NIOServer {
                     if (key.isWritable()) {
                         SocketChannel socketChannel = (SocketChannel) key.channel();
                         if (in.hasNextLine()) {
-                            socketChannel.write(ByteBuffer.wrap("测试".getBytes()));
-//                            socketChannel.write(ByteBuffer.wrap(in.nextLine().getBytes()));
+//                            socketChannel.write(ByteBuffer.wrap("测试".getBytes()));
+                            socketChannel.write(ByteBuffer.wrap((in.nextLine() + "\r\n").getBytes()));
                         }
                         key.interestOps(SelectionKey.OP_READ);
                     }

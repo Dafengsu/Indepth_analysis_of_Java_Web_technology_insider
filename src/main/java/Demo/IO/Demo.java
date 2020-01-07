@@ -1,5 +1,9 @@
 package Demo.IO;
 
+import java.io.OutputStream;
+import java.util.zip.Deflater;
+import java.util.zip.InflaterInputStream;
+
 /**
  * @author dafengsu
  * @description: 验证内部类的隐藏Field: this$0指向外部类的引用
@@ -17,6 +21,5 @@ public class Demo {
 
     public static void main(String[] args) {
         Demo demo = new Demo();
-
     }
 }

@@ -1,6 +1,12 @@
 package Demo.IO;
 
-import java.io.*;
+import Demo.IO.Chapter07.FormattableURL;
+
+import java.io.DataInput;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.Formatter;
 
 public class DemoForTest {
     public static void main(String[] args) throws IOException {
@@ -17,8 +23,14 @@ public class DemoForTest {
         byte[] bytes = s.getBytes();
         System.out.write(bytes);
         InputStream in = System.in;
-        int read = in.read();
 
+
+        float v = Float.parseFloat("3.14");
+        String s1 = String.valueOf(2);
+        System.out.println(v);
+        System.out.printf("好的%n你%n");
+        URL url = new URL("http://www.example.org/index.html?name=value#Fred");
+        System.out.printf("%60.40S\n", new FormattableURL(url));
 
     }
 }

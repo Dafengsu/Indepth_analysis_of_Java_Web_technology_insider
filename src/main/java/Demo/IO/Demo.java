@@ -1,10 +1,9 @@
 package Demo.IO;
 
-import java.io.OutputStream;
-import java.security.DigestInputStream;
-import java.util.jar.Pack200;
-import java.util.zip.Deflater;
-import java.util.zip.InflaterInputStream;
+import jdk.internal.org.objectweb.asm.commons.SerialVersionUIDAdder;
+
+import java.io.*;
+import java.net.Socket;
 
 /**
  * @author dafengsu
@@ -21,8 +20,7 @@ public class Demo {
         }
     }
 
-    public static void main(String[] args) {
-        Demo demo = new Demo();
+    public static void main(String[] args) throws IOException {
 
     }
 }

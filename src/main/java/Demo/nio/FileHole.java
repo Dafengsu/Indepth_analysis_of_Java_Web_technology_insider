@@ -1,7 +1,5 @@
 package Demo.nio;
 
-import sun.nio.cs.US_ASCII;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;

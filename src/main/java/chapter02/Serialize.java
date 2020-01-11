@@ -1,7 +1,5 @@
 package chapter02;
 
-import com.sun.corba.se.impl.orbutil.ObjectWriter;
-
 import java.io.*;
 
 public class Serialize implements Serializable {

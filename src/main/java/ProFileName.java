@@ -1,4 +1,6 @@
 import java.io.File;
+import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * @author dafengsu
@@ -7,10 +9,7 @@ import java.io.File;
  */
 public class ProFileName {
     public static void main(String[] args) {
-        File file = new File(".");
-        File[] files = file.listFiles();
-        for (File f : files) {
-            f.renameTo(new File(f.getName().replaceAll("]", "")));
-        }
+        Arrays.stream(Objects.requireNonNull(new File(".").listFiles()))
+                .forEach(f -> f.renameTo(new File(f.getName().replaceAll("]", ""))));
     }
 }

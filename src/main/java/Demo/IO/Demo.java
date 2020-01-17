@@ -3,7 +3,11 @@ package Demo.IO;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.FileStore;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
 import java.util.Arrays;
+import java.util.Iterator;
 
 /**
  * @author dafengsu
@@ -21,7 +25,12 @@ public class Demo {
     }
 
     public static void main(String[] args) throws IOException {
-
+        for (FileStore store : FileSystems.getDefault().getFileStores()) {
+            long total = store.getTotalSpace() / 1024;
+            long used = (store.getTotalSpace() - store.getUnallocatedSpace()) / 1024;
+            long avail = store.getUsableSpace() / 1024;
+            System.out.format("%-20s %12d %12d %12d%n", store, total, used, avail);
+        }
     }
 
     private static String getDefaultCharSet() {

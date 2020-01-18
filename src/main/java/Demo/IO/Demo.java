@@ -6,8 +6,10 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.FileStore;
 import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
+import java.nio.file.spi.FileSystemProvider;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author dafengsu
@@ -25,11 +27,9 @@ public class Demo {
     }
 
     public static void main(String[] args) throws IOException {
-        for (FileStore store : FileSystems.getDefault().getFileStores()) {
-            long total = store.getTotalSpace() / 1024;
-            long used = (store.getTotalSpace() - store.getUnallocatedSpace()) / 1024;
-            long avail = store.getUsableSpace() / 1024;
-            System.out.format("%-20s %12d %12d %12d%n", store, total, used, avail);
+        List<FileSystemProvider> fileSystemProviders = FileSystemProvider.installedProviders();
+        for (FileSystemProvider provider : fileSystemProviders) {
+
         }
     }
 

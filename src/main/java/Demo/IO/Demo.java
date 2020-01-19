@@ -3,9 +3,7 @@ package Demo.IO;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.FileStore;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
+import java.nio.file.*;
 import java.nio.file.spi.FileSystemProvider;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -27,10 +25,7 @@ public class Demo {
     }
 
     public static void main(String[] args) throws IOException {
-        List<FileSystemProvider> fileSystemProviders = FileSystemProvider.installedProviders();
-        for (FileSystemProvider provider : fileSystemProviders) {
-
-        }
+        Files.move(Paths.get("E:\\MYJAVA\\Scala"), Paths.get("E:\\MYJAVA\\Scala2"));
     }
 
     private static String getDefaultCharSet() {

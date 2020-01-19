@@ -25,8 +25,9 @@ public class Demo {
     }
 
     public static void main(String[] args) throws IOException {
-        Files.move(Paths.get("E:\\MYJAVA\\Scala"), Paths.get("E:\\MYJAVA\\Scala2"));
+        Files.move(Paths.get("E:\\MYJAVA\\Scala"), Paths.get("E:\\Scala2"));
     }
+
 
     private static String getDefaultCharSet() {
         OutputStreamWriter writer = new OutputStreamWriter(new ByteArrayOutputStream());

@@ -19,7 +19,7 @@ public class NIOClient {
         Selector selector = Selector.open();
         socketChannel.register(selector, SelectionKey.OP_CONNECT);
 
-        socketChannel.connect(new InetSocketAddress("127.0.0.1", 8899));
+        socketChannel.connect(new InetSocketAddress("127.0.0.1", 9090));
         while (true) {
             int select = selector.select();
             Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();

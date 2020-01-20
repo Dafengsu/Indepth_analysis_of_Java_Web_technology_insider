@@ -8,6 +8,9 @@ import java.nio.file.spi.FileSystemProvider;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * @author dafengsu
@@ -24,8 +27,8 @@ public class Demo {
         }
     }
 
-    public static void main(String[] args) throws IOException {
-        Files.move(Paths.get("E:\\MYJAVA\\Scala"), Paths.get("E:\\Scala2"));
+    public static void main(String[] args) {
+        ExecutorService executorService = Executors.newCachedThreadPool();
     }
 
 

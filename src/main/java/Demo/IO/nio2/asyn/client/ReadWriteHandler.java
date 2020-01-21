@@ -1,14 +1,10 @@
 package Demo.IO.nio2.asyn.client;
 
 
-
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.channels.CompletionHandler;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -27,6 +23,7 @@ public class ReadWriteHandler implements CompletionHandler<Integer, Attachment> 
             att.buffer.flip();
             int limit = att.buffer.limit();
             byte[] bytes = new byte[limit];
+            att.buffer.get(bytes, 0, limit);
             String msg = new String(bytes, UTF_8);
             System.out.println("Server responded: " + msg);
 

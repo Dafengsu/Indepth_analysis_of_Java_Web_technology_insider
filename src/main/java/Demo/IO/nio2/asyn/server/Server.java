@@ -2,10 +2,7 @@ package Demo.IO.nio2.asyn.server;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.nio.channels.AsynchronousChannelGroup;
 import java.nio.channels.AsynchronousServerSocketChannel;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * @author dafengsu
@@ -19,12 +16,9 @@ public class Server {
 
     public static void main(String[] args) throws IOException {
         AsynchronousServerSocketChannel channelServer;
-//        ExecutorService executorService = Executors.newFixedThreadPool(4);
-//        AsynchronousChannelGroup pool = AsynchronousChannelGroup.withThreadPool(executorService);
-//      AsynchronousChannelGroup pool = AsynchronousChannelGroup.withFixedThreadPool(4,Executors.defaultThreadFactory());
-        AsynchronousChannelGroup pool = AsynchronousChannelGroup.withCachedThreadPool(Executors.newCachedThreadPool(), 4);
+
         try {
-            channelServer = AsynchronousServerSocketChannel.open(pool).bind(new InetSocketAddress(HOST, PORT));
+            channelServer = AsynchronousServerSocketChannel.open().bind(new InetSocketAddress(HOST, PORT));
             System.out.println("Server listening at " + channelServer.getLocalAddress());
         } catch (IOException e) {
             System.err.println("Unable to open or bind server socket channel");
@@ -34,10 +28,10 @@ public class Server {
         att.channelServer = channelServer;
         channelServer.accept(att, new ConnectionHandler());
 
-        /*try {
-            Thread.currentThread().join(1000);
+        try {
+            Thread.currentThread().join();
         } catch (InterruptedException e) {
             System.out.println("Server terminating");
-        }*/
+        }
     }
 }

@@ -8,7 +8,7 @@ import java.nio.channels.CompletionHandler;
  * @description:
  * @date 2020/1/20 15:23
  */
-public class ReadableHandler implements CompletionHandler<Integer, Attachment> {
+public class ReadWriteHandler implements CompletionHandler<Integer, Attachment> {
 
     @Override
     public void completed(Integer result, Attachment att) {

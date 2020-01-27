@@ -28,7 +28,9 @@ public class Demo {
     }
 
     public static void main(String[] args) {
-        ExecutorService executorService = Executors.newCachedThreadPool();
+        int i = 97;
+        char a = (char) i;
+        System.out.println("i: " + i + " a: " + a);
     }
 
 

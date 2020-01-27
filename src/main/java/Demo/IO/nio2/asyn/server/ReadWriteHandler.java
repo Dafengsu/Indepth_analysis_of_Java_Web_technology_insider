@@ -3,12 +3,14 @@ package Demo.IO.nio2.asyn.server;
 import java.io.IOException;
 import java.nio.channels.CompletionHandler;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 /**
  * @author dafengsu
  * @description:
  * @date 2020/1/20 15:23
  */
-public class ReadableHandler implements CompletionHandler<Integer, Attachment> {
+public class ReadWriteHandler implements CompletionHandler<Integer, Attachment> {
 
     @Override
     public void completed(Integer result, Attachment att) {
@@ -26,7 +28,7 @@ public class ReadableHandler implements CompletionHandler<Integer, Attachment> {
             int limit = att.buffer.limit();
             byte[] bytes = new byte[limit];
             att.buffer.get(bytes, 0, limit);
-            System.out.println("Client at " + att.clientAddr + " send message: " + new String(bytes));
+            System.out.println("Client at " + att.clientAddr + " send message: " + new String(bytes, UTF_8));
             att.isReadMode = false;
 
             att.buffer.rewind();

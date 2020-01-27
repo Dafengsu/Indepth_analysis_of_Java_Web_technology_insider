@@ -1,0 +1,44 @@
+package Demo.network.thread;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.security.DigestInputStream;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+/**
+ * @description:
+ * @author: su
+ * @date: 2020/1/27
+ */
+public class ReturnDigest extends Thread {
+    private String filename;
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public byte[] getDigest() {
+        return digest;
+    }
+
+    private volatile byte[] digest;
+
+    public ReturnDigest(String filename) {
+        this.filename = filename;
+    }
+
+    @Override
+    public void run() {
+        try {
+            FileInputStream in = new FileInputStream(filename);
+            MessageDigest sha = MessageDigest.getInstance("SHA-256");
+            DigestInputStream din = new DigestInputStream(in, sha);
+            while (din.read() != -1) ;
+            din.close();
+            digest = sha.digest();
+        } catch (NoSuchAlgorithmException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+}

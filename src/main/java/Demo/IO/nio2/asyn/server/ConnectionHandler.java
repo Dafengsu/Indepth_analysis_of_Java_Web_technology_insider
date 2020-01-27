@@ -28,6 +28,8 @@ public class ConnectionHandler implements CompletionHandler<AsynchronousSocketCh
             newAtt.clientAddr = clientAddr;
             ReadableHandler rwh = new ReadableHandler();
             channelClient.read(newAtt.buffer, newAtt, rwh);
+            Thread thread = Thread.currentThread();
+            System.out.println("Thread is daemon: " + thread.isDaemon());
         } catch (IOException e) {
             e.printStackTrace();
         }

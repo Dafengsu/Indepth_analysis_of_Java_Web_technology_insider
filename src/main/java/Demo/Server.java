@@ -3,6 +3,9 @@ package Demo;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.ByteBuffer;
+import java.nio.channels.SocketChannel;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Server {
@@ -52,6 +55,7 @@ class ReceiveMessageHandler implements Runnable {
             while (scanner.hasNextLine()) {
                 System.out.println(scanner.nextLine());
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }

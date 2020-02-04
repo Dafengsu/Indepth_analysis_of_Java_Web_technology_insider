@@ -1,4 +1,4 @@
-package Demo.network.http.urlconnection;
+package Demo.network.urlconnection;
 
 import java.util.Date;
 import java.util.Locale;

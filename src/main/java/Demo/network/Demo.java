@@ -1,9 +1,12 @@
 package Demo.network;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.StandardSocketOptions;
+import java.nio.channels.ServerSocketChannel;
+
+import static Demo.network.nio.OptionSupport.printOptions;
 
 /**
  * @description:
@@ -11,20 +14,9 @@ import java.io.InputStreamReader;
  * @date: 2020/2/4
  */
 public class Demo {
-    public static void main(String[] args) {
-        String s = "GET /directory/filename.html HTTP/1.0\r\n\r\n";
-        BufferedReader in = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(s.getBytes())));
-        for (int i = 0; i < 2; i++) {
-            try {
-                String line = in.readLine();
-                System.out.println(line);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-
-
-
+    public static void main(String[] args) throws IOException {
+        ServerSocketChannel channel = ServerSocketChannel.open();
+        channel.setOption(StandardSocketOptions.IP_TOS, 2);
+        channel.getOption(StandardSocketOptions.IP_TOS);
     }
 }
